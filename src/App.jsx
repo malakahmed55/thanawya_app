@@ -205,6 +205,35 @@ export default function App() {
                   {msgInfo.sub}
                 </p>
               </div>
+              {/* Footer مع لوجو اسمك ورابط لينكد إن */}
+      <footer style={{ 
+        textAlign: 'center', 
+        padding: '30px 20px', 
+        color: '#666', 
+        fontSize: '15px',
+        borderTop: '1px solid #eee',
+        marginTop: '40px',
+        backgroundColor: '#fafafa'
+      }}>
+        تم تطوير الموقع بواسطة {' '}
+        <a 
+          href="https://www.linkedin.com/in/YOUR-PROFILE" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ 
+            fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive, sans-serif",
+            fontSize: '22px',
+            fontWeight: 'bold',
+            color: '#c59b27', // لون ذهبي أنيق
+            textDecoration: 'none',
+            display: 'inline-block',
+            margin: '0 5px'
+          }}
+        >
+          malak ahmed
+        </a> 
+        ✨
+      </footer>
             </div>
           );
         })}
