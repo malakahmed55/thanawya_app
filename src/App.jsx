@@ -17,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Reenie+Beanie&family=Pacifico&display=swap';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
   }, []);
@@ -205,39 +205,21 @@ export default function App() {
                   {msgInfo.sub}
                 </p>
               </div>
-              {/* Footer مع لوجو اسمك ورابط لينكد إن */}
-      <footer style={{ 
-        textAlign: 'center', 
-        padding: '30px 20px', 
-        color: '#666', 
-        fontSize: '15px',
-        borderTop: '1px solid #eee',
-        marginTop: '40px',
-        backgroundColor: '#fafafa'
-      }}>
-        تم تطوير الموقع بواسطة {' '}
-        <a 
-          href="https://www.linkedin.com/in/YOUR-PROFILE" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{ 
-            fontFamily: "'Brush Script MT', 'Lucida Handwriting', cursive, sans-serif",
-            fontSize: '22px',
-            fontWeight: 'bold',
-            color: '#c59b27', // لون ذهبي أنيق
-            textDecoration: 'none',
-            display: 'inline-block',
-            margin: '0 5px'
-          }}
-        >
-          malak ahmed
-        </a> 
-        ✨
-      </footer>
             </div>
           );
         })}
       </div>
+
+      <footer style={styles.footer}>
+        <a 
+          href="https://shorturl.at/sJ2Jn" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={styles.footerLink}
+        >
+          malak ahmed
+        </a>
+      </footer>
 
     </div>
   );
@@ -287,10 +269,11 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     backgroundColor: '#ffffff',
-    padding: '8px 12px',
+    padding: '6px 8px',
     borderRadius: '20px',
     border: '2px solid #F39399',
-    boxShadow: '0 10px 25px rgba(93, 49, 64, 0.15)'
+    boxShadow: '0 10px 25px rgba(93, 49, 64, 0.15)',
+    gap: '6px'
   },
   input: {
     flex: 1,
@@ -298,23 +281,25 @@ const styles = {
     border: 'none',
     outline: 'none',
     color: '#4a1525',
-    padding: '12px 18px',
-    fontSize: '1.1rem',
+    padding: '10px 14px',
+    fontSize: '1rem',
     fontFamily: "'Cairo', sans-serif",
     direction: 'rtl',
-    fontWeight: '600'
+    fontWeight: '600',
+    minWidth: '0'
   },
   button: {
     background: '#5D3140',
     color: '#ffffff',
     border: 'none',
-    borderRadius: '14px',
-    padding: '12px 28px',
-    fontSize: '1.05rem',
+    borderRadius: '12px',
+    padding: '10px 18px',
+    fontSize: '0.95rem',
     fontWeight: '700',
     fontFamily: "'Cairo', sans-serif",
     cursor: 'pointer',
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
+    flexShrink: 0
   },
   messageBox: {
     backgroundColor: '#ffffff',
@@ -417,5 +402,23 @@ const styles = {
     fontWeight: '700',
     lineHeight: '1.6',
     opacity: 0.95
+  },
+  footer: {
+    width: '100%',
+    maxWidth: '650px',
+    marginTop: '40px',
+    padding: '200px  ',
+    display: 'flex',
+    justifyContent: 'flex-start', // دي المسؤولة عن إنه يروح أقصى الشمال
+    alignItems: 'left'
+  },
+  footerLink: {
+    fontFamily: "'Pacifico', 'Reenie Beanie', cursive, sans-serif",
+    fontSize: '1.4rem',
+    fontWeight: 'normal',
+    color: '#4a1525',
+    textDecoration: 'none',
+    cursor: 'pointer',
+    letterSpacing: '1px'
   }
 };
