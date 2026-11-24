@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import confetti from 'canvas-confetti';
 
-const SUPABASE_URL = "https://rxqrmphatozlejdidlka.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_FEf1zYKzK_9GWKXAttclEg_yW5V06Vm"; 
+// Public client config (publishable key). Override with VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY.
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://rxqrmphatozlejdidlka.supabase.co";
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "sb_publishable_FEf1zYKzK_9GWKXAttclEg_yW5V06Vm";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -14,13 +15,6 @@ export default function App() {
   const [message, setMessage] = useState('');
 
   const CARD_TEXT_COLOR = '#4a1525'; 
-
-  useEffect(() => {
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Reenie+Beanie&family=Pacifico&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-  }, []);
 
   const triggerConfetti = () => {
     confetti({
@@ -110,7 +104,7 @@ export default function App() {
         const { data, error } = await supabase
           .from('students')
           .select('*')
-          .ilike('arabic_name', `%${query}%`)
+          .ilike('arabic_name', `%${query.replace(/[\\%_]/g, '\\$&')}%`)
           .limit(21);
 
         if (error) throw error;
