@@ -1,16 +1,29 @@
-# React + Vite
+# Thanaweya Results
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page web app where students look up their Thanaweya Amma (Egyptian high school) results by seating number or by name. Each result is shown on a card with a short message, and a confetti effect plays for passing results.
 
-Currently, two official plugins are available:
+Live demo: https://thanawya-app.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Search by seating number (exact match) or by Arabic name (partial match, up to 20 results)
+- Result card with a message based on the result
+- Arabic, right-to-left interface
+- Loading and "not found" messages
 
-## React Compiler
+## Tech stack
+- React and Vite
+- Supabase (Postgres) as the data source, queried from the browser with the project's public (publishable) key
+- canvas-confetti
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run locally
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Build
+```bash
+npm run build
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built by Malak Ahmed.
